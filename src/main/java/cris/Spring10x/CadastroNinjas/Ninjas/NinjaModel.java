@@ -1,7 +1,10 @@
-package cris.Spring10x.CadastroNinjas;
+package cris.Spring10x.CadastroNinjas.Ninjas;
 
+import cris.Spring10x.CadastroNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+//TODO: transforma uma classe em entidade (tabela)
 @Entity
 @Table(name = "tb_cadastro_de_ninjas")
 
@@ -11,15 +14,19 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    private String emaol;
+    private String email;
     private int idade;
+//TODO: Varios ninjas podem tem uma missão.
+    @ManyToOne
+    @JoinColumn(name = "tb_missoes_id")// Foreing Key ou chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
 
     public NinjaModel(String nome, String emaol, int idade) {
         this.nome = nome;
-        this.emaol = emaol;
+        this.email = email;
         this.idade = idade;
     }
 
@@ -32,11 +39,11 @@ public class NinjaModel {
     }
 
     public String getEmaol() {
-        return emaol;
+        return email;
     }
 
     public void setEmaol(String emaol) {
-        this.emaol = emaol;
+        this.email = emaol;
     }
 
     public int getIdade() {

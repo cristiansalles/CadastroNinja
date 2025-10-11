@@ -1,4 +1,4 @@
-package cris.Spring10x.CadastroNinjas;
+package cris.Spring10x.CadastroNinjas.Ninjas;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
