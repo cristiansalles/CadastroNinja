@@ -1,5 +1,6 @@
 package cris.Spring10x.CadastroNinjas.Ninjas;
 
+import jakarta.persistence.Id;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +31,9 @@ public class NinjaController {
         return ninjaService.listarNinjas();
     }
 
-    @GetMapping("/listaId")
-    public String mostrasTodosNinjasPorId() {
-        return "Todos os Ninjas por Id";
+    @GetMapping("/lista/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable Long id) {
+        return ninjaService.listarNinjasPorId(id);
     }
 
     @PutMapping("/alterar")
