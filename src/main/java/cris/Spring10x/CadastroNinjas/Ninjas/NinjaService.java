@@ -36,6 +36,15 @@ public class NinjaService {
         ninjaRepository.deleteById(id);
     }
 
+    //TODO: Alterar Cadastro.
+    public NinjaModel alterarNinja (Long id, NinjaModel ninjaAlterado) {
+        if (ninjaRepository.existsById(id)) {
+            ninjaAlterado.setId(id);
+            return ninjaRepository.save(ninjaAlterado);
+        }
+        return null;
+
+    }
 
 
 
