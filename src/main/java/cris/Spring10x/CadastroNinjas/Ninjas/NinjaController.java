@@ -20,10 +20,10 @@ public class NinjaController {
     public String boasVindas() {
         return "Primeira menssagem";
     }
-
+    //TODO: Anotação para serializar
     @PostMapping("/criar")
-    public String criarNinja() {
-        return "Ninja criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+        return ninjaService.criarNinja(ninja);
     }
 
     @GetMapping("/lista")

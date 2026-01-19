@@ -11,14 +11,15 @@ import java.util.List;
 @Table(name = "tb_missoes")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 
 public class MissoesModel {
 
-    @Getter
-    @Setter
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nomeMissao;
     private String hanck;
     //TODO: Uma missão pode ter varios ninjas.
