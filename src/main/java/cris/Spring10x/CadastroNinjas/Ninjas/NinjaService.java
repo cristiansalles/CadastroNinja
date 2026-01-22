@@ -32,7 +32,6 @@ public class NinjaService {
                 .collect(Collectors.toList());
     }
 
-    //listar todos por ID.
     public NinjaDTO listarNinjasPorId(long id) {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.map(ninjaMapper::map)
@@ -50,12 +49,15 @@ public class NinjaService {
         return ninjaMapper.map(ninja);
     }
 
-    //Deletar Ninjas.
-    public void deletarNinja(Long id) {
+    public boolean deletarNinja(Long id) {
+        if (!ninjaRepository.existsById(id)) {
+            return false;
+        }
+
         ninjaRepository.deleteById(id);
+        return true;
     }
 
-    //Alterar Cadastro.
     public NinjaDTO alterarNinja (Long id, NinjaDTO ninjaDTO) {
         Optional<NinjaModel> ninjaExistente = ninjaRepository.findById(id);
         if (ninjaExistente.isPresent()){
