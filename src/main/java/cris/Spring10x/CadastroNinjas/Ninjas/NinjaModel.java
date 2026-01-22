@@ -12,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = "missoes")
 
 public class NinjaModel {
 
